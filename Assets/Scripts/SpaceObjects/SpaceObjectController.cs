@@ -8,14 +8,12 @@ public class SpaceObjectController : MonoBehaviour, IDynamicObject
 
     private void Awake()
     {
-        _spaceObject = new SpaceObject
-            (
-                _settings.name,
-                _settings.IsStatic,
-                _settings.Radius,
-                _settings.RotationPeriod
-                );
-        
+        _spaceObject = new SpaceObject(
+            _settings.Name,
+            _settings.IsStatic,
+            _settings.Mass
+        );
+
     }
 
     public Vector3 GetPositionFromTime(float time)
