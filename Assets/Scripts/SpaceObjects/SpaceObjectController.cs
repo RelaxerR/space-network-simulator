@@ -60,12 +60,13 @@ public class SpaceObjectController : MonoBehaviour, IDynamicObject
 
         // Вычисляем угол поворота вокруг своей оси
         var angle = (time / rotationPeriod) * 360f;
+        Debug.Log($"tilt: {tilt}, angle: {angle}");
 
         // Возвращаем поворот объекта
         return new Vector3(tilt, angle, 0);
     }
 
-    public void UpdatePosition(float time)
+    public void UpdateSelf(float time)
     {
         transform.position = GetPositionFromTime(time);
         transform.rotation = Quaternion.Euler(GetRotationFromTime(time));

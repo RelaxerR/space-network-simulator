@@ -10,7 +10,7 @@ public class SpaceObjectSettings : ScriptableObject
     
     [Header("Self-orbiting")]
     public float Radius; // Радиус объекта в метрах
-    public float OrbitalPeriod; // Период одного оборота вокруг своей оси в секунду
+    public float OrbitalPeriod; // Период одного оборота вокруг своей оси в секундах
     public float RotationAxisTilt; // Угол наклона оси вращения в градусах
 
     [HideInInspector] public float DistanceToStatic;
@@ -26,6 +26,9 @@ public class SpaceObjectSettingsEditor : Editor
         settings.Name = EditorGUILayout.TextField("Name", settings.Name);
         settings.IsStatic = EditorGUILayout.Toggle("Is Static", settings.IsStatic);
         settings.Mass = EditorGUILayout.FloatField("Mass", settings.Mass);
+        settings.Radius = EditorGUILayout.FloatField("Radius", settings.Radius);
+        settings.OrbitalPeriod = EditorGUILayout.FloatField("OrbitalPeriod", settings.OrbitalPeriod);
+        settings.RotationAxisTilt = EditorGUILayout.FloatField("RotationAxisTilt", settings.RotationAxisTilt);
 
         if (!settings.IsStatic)
         {

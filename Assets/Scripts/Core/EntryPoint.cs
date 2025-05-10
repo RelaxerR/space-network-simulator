@@ -26,7 +26,7 @@ public class EntryPoint : MonoBehaviour
 
         foreach (var obj in SpaceObjects)
         {
-            obj.UpdatePosition(_time);
+            obj.UpdateSelf(_time);
         }
     }
 }

@@ -15,4 +15,7 @@ MonoBehaviour:
   Name: "\u041B\u0443\u043D\u0430"
   IsStatic: 0
   Mass: 7.35e+22
+  Radius: 1737.4
+  OrbitalPeriod: 2360592
+  RotationAxisTilt: 83.32
   DistanceToStatic: 384301
