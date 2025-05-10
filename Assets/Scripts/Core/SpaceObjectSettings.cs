@@ -7,6 +7,11 @@ public class SpaceObjectSettings : ScriptableObject
     public string Name;
     public bool IsStatic;
     public float Mass;
+    
+    [Header("Self-orbiting")]
+    public float Radius; // Радиус объекта в метрах
+    public float OrbitalPeriod; // Период одного оборота вокруг своей оси в секунду
+    public float RotationAxisTilt; // Угол наклона оси вращения в градусах
 
     [HideInInspector] public float DistanceToStatic;
 }
