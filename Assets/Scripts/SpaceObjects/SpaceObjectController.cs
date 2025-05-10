@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class SpaceObjectController : MonoBehaviour, IDynamicObject
 {
+    [SerializeField] private SpaceObjectController StaticSpaceObject;
     [SerializeField] private SpaceObjectSettings _settings;
     private SpaceObject _spaceObject;
+    
+    private static GlobalSettings _globalSettings => GlobalSettings.Instance;
 
     private void Awake()
     {
@@ -19,20 +22,32 @@ public class SpaceObjectController : MonoBehaviour, IDynamicObject
 
     public Vector3 GetPositionFromTime(float time)
     {
-        if (_settings.IsStatic) return Vector3.zero;
-        
-        var r = _settings.DistanceToStatic;
-        var M = _settings.Mass; // Предполагаем, что это масса центрального тела
+        if (_settings.IsStatic)
+            return transform.position;
 
-        // Угловая скорость для круговой орбиты
-        var angularVelocity = Mathf.Sqrt(GlobalSettings.G * M / Mathf.Pow(r, 3));
+        // Гравитационная постоянная
+        const float G = GlobalSettings.G;
 
-        // Позиция на плоскости XZ (можно изменить ось)
-        var x = r * Mathf.Cos(angularVelocity * time);
-        var y = 0f;
-        var z = r * Mathf.Sin(angularVelocity * time);
+        // Масштабируем параметры
+        var scaledMass = StaticSpaceObject._spaceObject.Mass / _globalSettings.ParametersScale;
+        var scaledDistance = _settings.DistanceToStatic / _globalSettings.ParametersScale;
+        var scaledTime = time / _globalSettings.ParametersScale / _globalSettings.TimeScale;
 
-        return new Vector3(x, y, z);
+        // Получаем статический объект, вокруг которого вращается текущее тело
+        var staticObject = StaticSpaceObject.transform.position;
+
+        // Вычисляем угловую скорость (ω) для круговой орбиты
+        var angularVelocity = Mathf.Sqrt(G * scaledMass / Mathf.Pow(scaledDistance, 3));
+
+        // Вычисляем текущий угол на орбите
+        var angle = angularVelocity * scaledTime;
+
+        // Вычисляем координаты x и z (движение по круговой орбите в плоскости XZ)
+        var x = staticObject.x + scaledDistance * Mathf.Cos(angle);
+        var z = staticObject.z + scaledDistance * Mathf.Sin(angle);
+
+        // Возвращаем позицию (y остаётся неизменной, если орбита в плоскости XZ)
+        return new Vector3(x, transform.position.y, z);
     }
 
     public Vector3 GetRotationFromTime(float time)
@@ -40,8 +55,8 @@ public class SpaceObjectController : MonoBehaviour, IDynamicObject
         throw new NotImplementedException();
     }
 
-    public void UpdatePosition()
+    public void UpdatePosition(float time)
     {
-        throw new NotImplementedException();
+        transform.position = GetPositionFromTime(time);
     }
 }

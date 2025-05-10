@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EntryPoint : MonoBehaviour
 {
+    [SerializeField] private List<SpaceObjectController> SpaceObjects;
     [SerializeField] private GlobalSettings _globalSettings;
     private float _time;
 
@@ -21,5 +23,10 @@ public class EntryPoint : MonoBehaviour
     void FixedUpdate()
     {
         _time += _globalSettings.TimeStep;
+
+        foreach (var obj in SpaceObjects)
+        {
+            obj.UpdatePosition(_time);
+        }
     }
 }

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307fd0d6c5a742d299f567e7000abf86, type: 3}
-  m_Name: Moon
+  m_Script: {fileID: 11500000, guid: da04261f554df448d8e1e666c5c515ca, type: 3}
+  m_Name: Default
   m_EditorClassIdentifier: 
-  Name: "\u0417\u0435\u043C\u043B\u044F"
-  IsStatic: 1
-  Mass: 0
+  TimeStep: 1
+  ParametersScale: 1000
+  TimeScale: 1000

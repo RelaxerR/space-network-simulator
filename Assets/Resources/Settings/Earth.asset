@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u0417\u0435\u043C\u043B\u044F"
   IsStatic: 1
-  Mass: 0
+  Mass: 5.976e+24
+  DistanceToStatic: 0
+  StaticSpaceObject: {fileID: 0}

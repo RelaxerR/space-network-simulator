@@ -9,7 +9,6 @@ public class SpaceObjectSettings : ScriptableObject
     public float Mass;
 
     [HideInInspector] public float DistanceToStatic;
-    [HideInInspector] public Vector3 StaticPosition;
 }
 
 [CustomEditor(typeof(SpaceObjectSettings))]
@@ -26,7 +25,6 @@ public class SpaceObjectSettingsEditor : Editor
         if (!settings.IsStatic)
         {
             settings.DistanceToStatic = EditorGUILayout.FloatField("Distance To Static", settings.DistanceToStatic);
-            settings.StaticPosition = EditorGUILayout.Vector3Field("Static Position", settings.StaticPosition);
         }
 
         if (GUI.changed)
