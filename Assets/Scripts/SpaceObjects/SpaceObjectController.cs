@@ -68,6 +68,6 @@ public class SpaceObjectController : MonoBehaviour, IDynamicObject
     public void UpdatePosition(float time)
     {
         transform.position = GetPositionFromTime(time);
-        transform.rotation = GetRotationFromTime(time);
+        transform.rotation = Quaternion.Euler(GetRotationFromTime(time));
     }
 }
