@@ -52,11 +52,22 @@ public class SpaceObjectController : MonoBehaviour, IDynamicObject
 
     public Vector3 GetRotationFromTime(float time)
     {
-        throw new NotImplementedException();
+        // Период вращения вокруг своей оси
+        var rotationPeriod = _settings.OrbitalPeriod / _globalSettings.ParametersScale / _globalSettings.TimeScale;
+
+        // Угол наклона оси вращения
+        var tilt = _settings.RotationAxisTilt * Mathf.Deg2Rad;
+
+        // Вычисляем угол поворота вокруг своей оси
+        var angle = (time / rotationPeriod) * 360f;
+
+        // Возвращаем поворот объекта
+        return new Vector3(tilt, angle, 0);
     }
 
     public void UpdatePosition(float time)
     {
         transform.position = GetPositionFromTime(time);
+        transform.rotation = GetRotationFromTime(time);
     }
 }
