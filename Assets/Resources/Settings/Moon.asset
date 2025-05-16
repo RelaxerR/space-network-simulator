@@ -18,4 +18,8 @@ MonoBehaviour:
   Radius: 1737.4
   OrbitalPeriod: 2360592
   RotationAxisTilt: 83.32
+  InvertedRotation: 0
+  OrbitalInclination: 0
+  AngularVelocity: 0
+  InvertedOrbit: 1
   DistanceToStatic: 384301

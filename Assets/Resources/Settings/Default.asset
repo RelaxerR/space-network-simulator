@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeStep: 1
   ParametersScale: 1000
-  TimeScale: 1000
+  TimeScale: 1044
