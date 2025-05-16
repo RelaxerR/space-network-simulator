@@ -15,5 +15,7 @@ MonoBehaviour:
   Name: "\u0417\u0435\u043C\u043B\u044F"
   IsStatic: 1
   Mass: 5.976e+24
+  Radius: 6.371
+  OrbitalPeriod: 86164.09
+  RotationAxisTilt: 23.44
   DistanceToStatic: 0
-  StaticSpaceObject: {fileID: 0}

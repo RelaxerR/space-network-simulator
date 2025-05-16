@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307fd0d6c5a742d299f567e7000abf86, type: 3}
+  m_Name: Moon Satellite 1
+  m_EditorClassIdentifier: 
+  Name: "\u0421\u043F\u0443\u0442\u043D\u0438\u043A \u041B\u0443\u043D\u044B 1"
+  IsStatic: 0
+  Mass: 1
+  Radius: 1
+  OrbitalPeriod: 1
+  RotationAxisTilt: 0
+  InvertedRotation: 0
+  OrbitalInclination: 90
+  AngularVelocity: 100
+  InvertedOrbit: 1
+  DistanceToStatic: 6000
