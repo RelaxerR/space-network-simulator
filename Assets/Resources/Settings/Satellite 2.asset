@@ -21,6 +21,6 @@ MonoBehaviour:
   RotationAxisTilt: 0
   InvertedRotation: 0
   OrbitalInclination: 0
-  AngularVelocity: 15
+  AngularVelocity: 4000
   InvertedOrbit: 1
   DistanceToStatic: 13000
