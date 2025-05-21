@@ -19,7 +19,7 @@ MonoBehaviour:
   OrbitalPeriod: 1
   RotationAxisTilt: 0
   InvertedRotation: 0
-  OrbitalInclination: 90
-  AngularVelocity: 100
+  OrbitalInclination: 0
+  AngularVelocity: 3886
   InvertedOrbit: 1
   DistanceToStatic: 6000
